@@ -1,0 +1,6 @@
+const BLACK_TEXT = "#424242";
+const BORDER_GRAY = "#C2C2C2";
+const PRIMARY_BLUE = "#3FCFFF";
+const WHITE = "#fff";
+
+export { BLACK_TEXT, BORDER_GRAY, PRIMARY_BLUE, WHITE };
