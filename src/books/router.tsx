@@ -1,8 +1,8 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { RegisterBookViewFactory } from "./views/RegisterBookView";
+import { RegisterBookViewFactory } from "./ui/views/RegisterBookView";
 import { BookMemoryService } from "./domain/services/BookMemoryService";
-import { ListBookViewFactory } from "./views/ListBookView";
+import { ListBookViewFactory } from "./ui/views/ListBookView";
 
 const bookService = BookMemoryService();
 const RegisterBookView = RegisterBookViewFactory(bookService);

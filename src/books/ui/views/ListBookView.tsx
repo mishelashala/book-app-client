@@ -1,9 +1,10 @@
 import React from "react";
-import { BackNavBar } from "../ui/molecules/BackNavBar";
-import { Container } from "../ui/atoms/Container";
-import { Title } from "../ui/atoms/Title";
-import { IBookService } from "../domain/services/BookService.interface";
-import { IBook } from "../domain/models/Book";
+import { BackNavBar } from "../molecules/BackNavBar";
+import { Container } from "../atoms/Container";
+import { Title } from "../atoms/Title";
+import { IBookService } from "../../domain/services/BookService.interface";
+import { IBook } from "../../domain/models/Book";
+import { BookCard } from "../molecules/BookCard";
 
 const ListBookViewFactory = (bookService: IBookService) => {
   return function ListBookView() {
@@ -22,9 +23,9 @@ const ListBookViewFactory = (bookService: IBookService) => {
         <BackNavBar backTo="/" />
         <Container>
           <Title>Book List</Title>
-          {books.map((book) => {
-            return <div key={book.id}>{book.name}</div>;
-          })}
+          {books.map((book) => (
+            <BookCard key={book.id} book={book} />
+          ))}
         </Container>
       </section>
     );

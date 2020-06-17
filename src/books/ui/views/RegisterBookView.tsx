@@ -3,15 +3,16 @@ import { useHistory, useLocation } from "react-router-dom";
 import assoc from "lodash/fp/assoc";
 import replace from "lodash/fp/replace";
 import split from "lodash/fp/split";
-import { BackNavBar } from "../ui/molecules/BackNavBar";
-import { Button } from "../ui/atoms/Button";
-import { Input } from "../ui/atoms/Input";
-import { Container } from "../ui/atoms/Container";
-import { Label } from "../ui/atoms/Label";
+import { BackNavBar } from "../molecules/BackNavBar";
+import { Button } from "../atoms/Button";
+import { Input } from "../atoms/Input";
+import { Container } from "../atoms/Container";
+import { Label } from "../atoms/Label";
 import styled from "styled-components";
-import { When } from "../ui/components/When";
-import { Text } from "../ui/atoms/Text";
-import { IBookService } from "../domain/services/BookService.interface";
+import { When } from "../components/When";
+import { Text } from "../atoms/Text";
+import { Align, JustifyValue } from "../atoms/Align";
+import { IBookService } from "../../domain/services/BookService.interface";
 
 const Title = styled.h2`
   font-family: arial;
@@ -26,35 +27,6 @@ function parseQueryString(query: string): any {
   const [, value] = split("=", replace("?", "", query));
   return assoc("success", Boolean(value), {});
 }
-
-enum JustifyValue {
-  Center,
-  End,
-  Start,
-}
-
-export interface IAlignContentProps {
-  justify?: JustifyValue;
-}
-
-function justifyContent(justify: JustifyValue = JustifyValue.Start) {
-  if (justify === JustifyValue.Center) {
-    return "center";
-  }
-
-  if (justify === JustifyValue.End) {
-    return "end";
-  }
-
-  return "start";
-}
-
-const AlignContent = styled.div<IAlignContentProps>`
-  align-content: center;
-  align-items: center;
-  display: flex;
-  justify-content: ${(props) => justifyContent(props.justify)};
-`;
 
 const RegisterBookViewFactory = (bookService: IBookService) => {
   return function RegisterBookView() {
@@ -101,12 +73,12 @@ const RegisterBookViewFactory = (bookService: IBookService) => {
           </When>
 
           <When predicate={query.success}>
-            <AlignContent justify={JustifyValue.Center}>
+            <Align justify={JustifyValue.Center}>
               <Text>Book Registered Succesfully!</Text>
-            </AlignContent>
-            <AlignContent justify={JustifyValue.Center}>
+            </Align>
+            <Align justify={JustifyValue.Center}>
               <Button onClick={handleClickOk}>Ok boomer!</Button>
-            </AlignContent>
+            </Align>
           </When>
         </Container>
       </main>
