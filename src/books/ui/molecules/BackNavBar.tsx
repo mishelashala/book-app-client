@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { NavBar } from "../atoms/NavBar";
 import { Anchor } from "../atoms/Anchor";
 

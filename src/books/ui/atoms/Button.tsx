@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import * as colors from "../../styles/base/colors";
+import * as colors from "../styles/base/colors";
 
 export enum ButtonVariant {
   Primary,

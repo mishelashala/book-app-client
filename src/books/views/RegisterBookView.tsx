@@ -1,17 +1,17 @@
-import * as React from "react";
+import React from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import assoc from "lodash/fp/assoc";
 import replace from "lodash/fp/replace";
 import split from "lodash/fp/split";
-import { BackNavBar } from "../molecules/BackNavBar";
-import { Button } from "../atoms/Button";
-import { Input } from "../atoms/Input";
-import { Container } from "../atoms/Container";
-import { Label } from "../atoms/Label";
+import { BackNavBar } from "../ui/molecules/BackNavBar";
+import { Button } from "../ui/atoms/Button";
+import { Input } from "../ui/atoms/Input";
+import { Container } from "../ui/atoms/Container";
+import { Label } from "../ui/atoms/Label";
 import styled from "styled-components";
-import { When } from "../components/When";
-import { Text } from "../atoms/Text";
-import { IBookService } from "../services/BookService.interface";
+import { When } from "../ui/components/When";
+import { Text } from "../ui/atoms/Text";
+import { IBookService } from "../domain/services/BookService.interface";
 
 const Title = styled.h2`
   font-family: arial;
