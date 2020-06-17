@@ -11,7 +11,7 @@ import { Label } from "../atoms/Label";
 import styled from "styled-components";
 import { When } from "../components/When";
 import { Text } from "../atoms/Text";
-import { Align, JustifyValue } from "../atoms/Align";
+import { Align, AlignAxis } from "../atoms/Align";
 import { IBookService } from "../../domain/services/BookService.interface";
 
 const Title = styled.h2`
@@ -73,10 +73,10 @@ const RegisterBookViewFactory = (bookService: IBookService) => {
           </When>
 
           <When predicate={query.success}>
-            <Align justify={JustifyValue.Center}>
+            <Align justify={AlignAxis.Center}>
               <Text>Book Registered Succesfully!</Text>
             </Align>
-            <Align justify={JustifyValue.Center}>
+            <Align justify={AlignAxis.Center}>
               <Button onClick={handleClickOk}>Ok boomer!</Button>
             </Align>
           </When>
